@@ -87,7 +87,7 @@ public class UI extends JFrame implements MouseListener {
                     fileWriter.close();
 
                 } catch (IOException ex) {
-                    Logger.getLogger(TableChartUI.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(UI.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 System.exit(0);
             }

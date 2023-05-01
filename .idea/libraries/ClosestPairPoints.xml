@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="ClosestPairPoints">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/dist/ClosestPairPoints.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

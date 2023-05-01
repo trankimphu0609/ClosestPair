@@ -347,7 +347,7 @@ public class AlgorithmUI extends JPanel {
                     txtTime3.setText(en.format(endTime3));
                 }
 
-                if (Integer.parseInt(txtInput.getText()) > 1) {
+                if (!txtInput.getText().equals("") && Integer.parseInt(txtInput.getText()) > 1) {
                     FileWriter fileWriter;
                     try {
                         fileWriter = new FileWriter("./src/UI/data.txt", true);
@@ -423,8 +423,7 @@ public class AlgorithmUI extends JPanel {
                     txtTime1.setText(en.format(endTime));
                 }
 
-                if (Integer.parseInt(txtInput.getText()) > 1) {
-
+                if (!txtInput.getText().equals("") && Integer.parseInt(txtInput.getText()) > 1) {
                     FileWriter fileWriter;
                     try {
                         fileWriter = new FileWriter("./src/UI/data.txt", true);
@@ -467,7 +466,7 @@ public class AlgorithmUI extends JPanel {
                     txtTime2.setText(en.format(endTime));
                 }
 
-                if (Integer.parseInt(txtInput.getText()) > 1) {
+                if (!txtInput.getText().equals("") && Integer.parseInt(txtInput.getText()) > 1) {
                     FileWriter fileWriter;
                     try {
                         fileWriter = new FileWriter("./src/UI/data.txt", true);
@@ -508,8 +507,7 @@ public class AlgorithmUI extends JPanel {
                     txtTime3.setText(en.format(endTime));
                 }
 
-                if (Integer.parseInt(txtInput.getText()) > 1) {
-
+                if (!txtInput.getText().equals("") && Integer.parseInt(txtInput.getText()) > 1) {
                     FileWriter fileWriter;
                     try {
                         fileWriter = new FileWriter("./src/UI/data.txt", true);
