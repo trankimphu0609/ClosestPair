@@ -102,6 +102,7 @@ public class AlgorithmUI extends JPanel {
         txtOutputGenerated.setFont(font0);
         JScrollPane scroll = new JScrollPane(txtOutputGenerated);
         scroll.setBounds(new Rectangle(150, 60, 900, 180));
+
         // -------------------------------------------------------------------------------
 
         btnBruteForce = new JButton("Brute Force");
@@ -137,6 +138,7 @@ public class AlgorithmUI extends JPanel {
         txtTime1.setForeground(Color.red);
 
         //--------------------------------------------------------------------------------
+
         btnDivideAndConquer = new JButton("Divide And Conquer");
         btnDivideAndConquer.setBorder(createLineBorder(new Color(134, 64, 0), 5, true));
         btnDivideAndConquer.setFont(font2);
@@ -170,6 +172,7 @@ public class AlgorithmUI extends JPanel {
         txtTime2.setForeground(Color.BLACK);
 
         //--------------------------------------------------------------------------------
+
         btnRandomized = new JButton("Randomized");
         btnRandomized.setBorder(createLineBorder(new Color(134, 64, 0), 5, true));
         btnRandomized.setFont(font2);
@@ -204,6 +207,7 @@ public class AlgorithmUI extends JPanel {
         txtTime3.setForeground(Color.BLUE);
 
         //--------------------------------------------------------------------------------
+
         itemView.add(lbInput);
         itemView.add(txtInput);
         itemView.add(lbOutput);
@@ -347,7 +351,7 @@ public class AlgorithmUI extends JPanel {
                     txtTime3.setText(en.format(endTime3));
                 }
 
-                if (!txtInput.getText().equals("") && Integer.parseInt(txtInput.getText()) > 1) {
+                if (Integer.parseInt(txtInput.getText()) > 1) {
                     FileWriter fileWriter;
                     try {
                         fileWriter = new FileWriter("./src/UI/data.txt", true);
@@ -384,8 +388,8 @@ public class AlgorithmUI extends JPanel {
         btnClear.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                t.clear();
 
+                t.clear();
                 txtInput.setText("");
                 txtOutputGenerated.setText("");
                 txtResult1.setText("");
@@ -397,7 +401,6 @@ public class AlgorithmUI extends JPanel {
                 txtTime1.setText("");
                 txtTime2.setText("");
                 txtTime3.setText("");
-//                t.clear();
 
             }
         });
