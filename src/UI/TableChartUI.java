@@ -42,7 +42,7 @@ import org.jfree.data.category.DefaultCategoryDataset;
  */
 public class TableChartUI extends JPanel {
 
-    private JButton btnLoad, btnClearAll;
+    private JButton btnClearAll;
     private JPanel itemView1, itemView2;
 
     private JTable tbl;
