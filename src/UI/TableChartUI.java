@@ -46,7 +46,6 @@ public class TableChartUI extends JPanel {
     private JPanel itemView1, itemView2;
 
     private JTable tbl;
-    private DefaultTableModel model;
 
     private DefaultCategoryDataset dataset;
 
