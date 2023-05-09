@@ -61,11 +61,11 @@ public class TableChartUI extends JPanel {
         setBounds(new Rectangle(0, 0, 1300, 740));
 
         // Đọc dữ liệu từ file vào danh sách các dòng
-        List<String[]> data = readDataFromFile("./src/UI/data.txt");
+        List<String[]> data = readDataFromFile();
 
         // Tạo một DefaultTableModel từ danh sách các dòng
         String[] columnNames = {"Algorithm", "Size", "Time (µs)"};
-        DefaultTableModel model = new DefaultTableModel(data.toArray(new String[0][]), columnNames);
+        DefaultTableModel model = new DefaultTableModel(data.toArray(String[][]::new), columnNames);
 
         // Tạo một JTable với DefaultTableModel và đặt nó trong một JScrollPane
         tbl = new JTable(model);
@@ -136,11 +136,11 @@ public class TableChartUI extends JPanel {
 
     }
 
-    private static List<String[]> readDataFromFile(String fileName) {
+    private static List<String[]> readDataFromFile() {
         List<String[]> data = new ArrayList<>();
         BufferedReader reader;
         try {
-            reader = new BufferedReader(new FileReader(fileName));
+            reader = new BufferedReader(new FileReader("./src/UI/data.txt"));
             String line;
 
             while ((line = reader.readLine()) != null) {
