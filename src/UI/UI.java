@@ -78,17 +78,18 @@ public class UI extends JFrame implements MouseListener {
         exit.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-//                FileWriter fileWriter;
-//                try {
-//                    fileWriter = new FileWriter("./src/UI/data.txt");
-//
-//                    // Ghi nội dung trống vào file để xóa dữ liệu cũ
-//                    fileWriter.write("");
-//                    fileWriter.close();
-//
-//                } catch (IOException ex) {
-//                    Logger.getLogger(UI.class.getName()).log(Level.SEVERE, null, ex);
-//                }
+                //xoá dữ liêụ
+                FileWriter fileWriter;
+                try {
+                    fileWriter = new FileWriter("./src/UI/data.txt");
+
+                    // Ghi nội dung trống vào file để xóa dữ liệu cũ
+                    fileWriter.write("");
+                    fileWriter.close();
+
+                } catch (IOException ex) {
+                    Logger.getLogger(UI.class.getName()).log(Level.SEVERE, null, ex);
+                }
                 System.exit(0);
             }
         });

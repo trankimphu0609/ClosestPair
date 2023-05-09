@@ -13,6 +13,3 @@ Brute Force-4000-15,278
 Brute Force-5000-63,222
 Divide & Conquer-5000-9,970
 Randomized-5000-4,648
-Brute Force-6000-66,524
-Divide & Conquer-6000-8,164
-Randomized-6000-2,510
