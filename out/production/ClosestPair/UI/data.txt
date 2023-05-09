@@ -1,0 +1,18 @@
+Brute Force-1000-20,236
+Divide & Conquer-1000-10,066
+Randomized-1000-2,745
+Brute Force-2000-18,158
+Divide & Conquer-2000-5,568
+Randomized-2000-4,465
+Brute Force-3000-8,700
+Divide & Conquer-3000-13,765
+Randomized-3000-2,810
+Randomized-4000-9,158
+Divide & Conquer-4000-11,135
+Brute Force-4000-15,278
+Brute Force-5000-63,222
+Divide & Conquer-5000-9,970
+Randomized-5000-4,648
+Brute Force-6000-66,524
+Divide & Conquer-6000-8,164
+Randomized-6000-2,510
