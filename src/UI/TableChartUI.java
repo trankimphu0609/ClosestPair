@@ -42,11 +42,10 @@ import org.jfree.data.category.DefaultCategoryDataset;
  */
 public class TableChartUI extends JPanel {
 
-    private JButton btnLoad, btnClearAll;
+    private JButton btnClearAll;
     private JPanel itemView1, itemView2;
 
     private JTable tbl;
-    private DefaultTableModel model;
 
     private DefaultCategoryDataset dataset;
 
@@ -197,7 +196,7 @@ public class TableChartUI extends JPanel {
         LineAndShapeRenderer renderer = new LineAndShapeRenderer();
         renderer.setSeriesPaint(0, Color.BLUE);
         renderer.setSeriesShapesVisible(0, true);
-        renderer.setSeriesPaint(1, Color.GREEN);
+        renderer.setSeriesPaint(1, Color.BLACK);
         renderer.setSeriesShapesVisible(1, true);
         renderer.setSeriesPaint(2, Color.RED);
         renderer.setSeriesShapesVisible(2, true);
