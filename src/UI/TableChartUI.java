@@ -20,12 +20,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 import static javax.swing.BorderFactory.createLineBorder;
+
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
@@ -37,13 +40,9 @@ import org.jfree.chart.renderer.category.LineAndShapeRenderer;
 import org.jfree.data.category.DefaultCategoryDataset;
 
 /**
- *
  * @author trankimphu0609
  */
 public class TableChartUI extends JPanel {
-
-    private JButton btnClearAll;
-    private JPanel itemView1, itemView2;
 
     private JTable tbl;
 
@@ -56,12 +55,13 @@ public class TableChartUI extends JPanel {
     }
 
     private void init() {
+
         setLayout(null);
         setBackground(null);
         setBounds(new Rectangle(0, 0, 1300, 740));
 
         // Đọc dữ liệu từ file vào danh sách các dòng
-        List<String[]> data = readDataFromFile("./src/UI/data.txt");
+        List<String[]> data = readDataFromFile();
 
         // Tạo một DefaultTableModel từ danh sách các dòng
         String[] columnNames = {"Algorithm", "Size", "Time (µs)"};
@@ -70,17 +70,13 @@ public class TableChartUI extends JPanel {
         // Tạo một JTable với DefaultTableModel và đặt nó trong một JScrollPane
         tbl = new JTable(model);
 
-        itemView1 = new JPanel(null);
+        JPanel itemView1 = new JPanel(null);
         itemView1.setBounds(new Rectangle(0, 0, 350, 740));
         itemView1.setBackground(null);
 
-        itemView2 = new JPanel(null);
-        itemView2.setBounds(new Rectangle(355, 0, 715, 695));
-        itemView2.setBackground(Color.WHITE);
-
         Font font1 = new Font("Tahoma", Font.PLAIN, 15);
 
-        btnClearAll = new JButton("Clear All");
+        JButton btnClearAll = new JButton("Clear All");
         btnClearAll.setFont(font1);
         btnClearAll.setForeground(Color.black);
         btnClearAll.setBorder(createLineBorder(new Color(134, 64, 0), 5, true));
@@ -106,7 +102,7 @@ public class TableChartUI extends JPanel {
                 dataset.clear();
             }
         });
-        
+
         // Chỉnh width các cột 
         tbl.getColumnModel().getColumn(0).setPreferredWidth(40);
         tbl.getColumnModel().getColumn(1).setPreferredWidth(40);
@@ -132,15 +128,13 @@ public class TableChartUI extends JPanel {
         itemView1.add(scroll);
         itemView1.add(btnClearAll);
         add(itemView1);
-        add(itemView2);
-
     }
 
-    private static List<String[]> readDataFromFile(String fileName) {
+    private static List<String[]> readDataFromFile() {
         List<String[]> data = new ArrayList<>();
         BufferedReader reader;
         try {
-            reader = new BufferedReader(new FileReader(fileName));
+            reader = new BufferedReader(new FileReader("./src/UI/data.txt"));
             String line;
 
             while ((line = reader.readLine()) != null) {
@@ -158,6 +152,10 @@ public class TableChartUI extends JPanel {
     }
 
     private void drawChart() {
+        JPanel itemView2 = new JPanel(null);
+        itemView2.setBounds(new Rectangle(355, 0, 715, 695));
+        itemView2.setBackground(Color.WHITE);
+
         // Create the dataset
         dataset = new DefaultCategoryDataset();
 
@@ -171,6 +169,9 @@ public class TableChartUI extends JPanel {
                     timeStr.replaceAll("[^\\d.]+", "").replaceFirst("\\.", "@")
                             .replaceAll("\\.", "").replace("@", "."));
 
+            dataset.addValue(Double.valueOf(0.0), "Brute Force", "");
+            dataset.addValue(Double.valueOf(0.0), "Divide & Conquer", "");
+            dataset.addValue(Double.valueOf(0.0), "Randomized", "");
             dataset.addValue(time, algorithm, Integer.valueOf(size));
 
         }
@@ -210,6 +211,9 @@ public class TableChartUI extends JPanel {
         CategoryAxis categoryAxis = plot.getDomainAxis();
         CategoryLabelPositions newPosition = CategoryLabelPositions.createUpRotationLabelPositions(Math.PI / 4.0);
         categoryAxis.setCategoryLabelPositions(newPosition);
+
+        // Align x-axis labels with data points
+        plot.getDomainAxis().setLowerMargin(0.0);
 
         // Add the chart panel to the UI
         itemView2.removeAll();
